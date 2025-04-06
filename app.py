@@ -1,11 +1,13 @@
 """
 pip install --upgrade pip
-pip install streamlit==1.41.1
-pip install openai==0.27.8
-!pip install openai==1.47.0 httpx==0.27.2
+pip install streamlit==1.41.1 openai==1.47.0 httpx==0.27.2 python-dotenv
 
 streamlit run app.py
 """
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 print(f"START") 
 
