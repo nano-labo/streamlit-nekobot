@@ -9,13 +9,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-print(f"START") 
-
 import streamlit as st
 from openai import OpenAI
 client = OpenAI()
-
-print(f"START - NEKO") 
 
 st.title("猫ボット")
 #st.write("猫チャットボットは、夏目漱石の「吾輩は猫である」の猫の口調・性格で質問に答えるAIです。")
@@ -23,12 +19,8 @@ st.write("吾輩は猫である。何でも好きなように聞くがよい。"
 
 st.divider()
 
-print(f"START - NEKO2") 
-
 MY_JOB_ID = "ftjob-ewBc6B03Z0YgkanSTyNCog7y"
-print(f"JOB_ID: {MY_JOB_ID}")
 fine_tuned_job = client.fine_tuning.jobs.retrieve(MY_JOB_ID)
-print(f"FINE_TUNED_JOB: {fine_tuned_job}")
 fine_tuned_job
 
 input_message = st.text_input(label="さて、何を聞きたいのかな。")
@@ -38,7 +30,6 @@ print(f"Input: {input_message}")
 
 if st.button("聞く"):
     #以下は、質問に対してLLMからの回答を得るコードです。
-    print(f"聞く: {input_message}")
     completion = client.chat.completions.create(
         model=fine_tuned_job.fine_tuned_model,
         messages=[
