@@ -21,12 +21,12 @@ st.divider()
 
 MY_JOB_ID = "ftjob-ewBc6B03Z0YgkanSTyNCog7y"
 fine_tuned_job = client.fine_tuning.jobs.retrieve(MY_JOB_ID)
-fine_tuned_job
+#fine_tuned_job
 
 input_message = st.text_input(label="さて、何を聞きたいのかな。")
 text_count = len(input_message)
 
-print(f"Input: {input_message}")
+#print(f"Input: {input_message}")
 
 if st.button("聞く"):
     #以下は、質問に対してLLMからの回答を得るコードです。
