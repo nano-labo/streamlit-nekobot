@@ -64,6 +64,8 @@ if "messages" not in st.session_state:
 
 display_history(st.session_state.messages)
 
+if "button_menu" not in st.session_state:
+    st.session_state.messages = ""
 if st.session_state["button_menu"]:
     st.write(st.session_state["button_menu"])
     input_message = st.session_state["button_menu"]
