@@ -87,6 +87,10 @@ if input_message:
     with st.chat_message("assistant"):
         st.markdown(msg.content)
     
+    if st.button("今日の天気は"):
+        st.write("天気を知りたい")
+    if st.button("おすすめのレシピは"):
+        st.write("レシピを知りたい")
     #st.session_state.messages.append(input_message)
     #st.session_state.messages.append(msg)
     st.session_state.messages.append({"role": "user", "content": input_message})
