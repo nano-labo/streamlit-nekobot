@@ -64,6 +64,11 @@ if "messages" not in st.session_state:
 
 display_history(st.session_state.messages)
 
+if st.session_state["button_menu"]:
+    st.write(st.session_state["button_menu"])
+    input_message = st.session_state["button_menu"]
+    st.session_state["button_menu"] = ""
+
 #if st.button("聞く"):
 if input_message:
     #以下は、質問に対してLLMからの回答を得るコードです。
@@ -93,6 +98,6 @@ if input_message:
     st.session_state.messages.append({"role": "assistant", "content": msg.content})
 
 if st.button("今日の天気は"):
-    st.write("天気を知りたい")
+    st.session_state["button_menu"] = "今日の天気は"
 if st.button("おすすめのレシピは"):
-    st.write("レシピを知りたい")
+    st.session_state["button_menu"] = "おすすめのレシピは"
