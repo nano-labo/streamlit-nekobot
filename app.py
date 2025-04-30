@@ -35,7 +35,7 @@ def display_history(messages):
         display_msg_content(message)
 
 def display_msg_content(message):
-    st.write(message)
+    #st.write(message)
     #st.write(message.content)
     with st.chat_message(message["role"]):
         st.write(message["content"])
@@ -78,8 +78,9 @@ if input_message:
     #msg = completion.choices[0].message.content
     #st.write(msg)
     msg = completion.choices[0].message
-    st.write(msg.content)
+    #st.write(msg.content)
     #display_msg_content(msg)
+    display_msg_content({"role": "assistant", "content": msg.content})
     
     #st.session_state.messages.append(input_message)
     #st.session_state.messages.append(msg)
