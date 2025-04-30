@@ -17,6 +17,7 @@ git config --global user.email "メールアドレス"
 
 
 ** コミット方法
+git add .
 git commit -m "first commit."
 git push -u origin main
 
@@ -68,7 +69,9 @@ if st.button("聞く"):
             {"role": "user", "content": input_message}
         ]
     )
-    msg = completion.choices[0].message.content
-    st.write(msg)
-
+    #msg = completion.choices[0].message.content
+    #st.write(msg)
+    msg = completion.choices[0].message
+    display_msg_content(msg)
+    
     st.session_state.messages.append(msg)
