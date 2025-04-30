@@ -73,7 +73,7 @@ if input_message:
             {"role": "user", "content": input_message}
         ]
     )
-    #st.write(completion)
+    st.write(completion)
     #msg = completion.choices[0].message.content
     #st.write(msg)
     msg = completion.choices[0].message
