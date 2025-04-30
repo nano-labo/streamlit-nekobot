@@ -35,8 +35,9 @@ def display_history(messages):
         display_msg_content(message)
 
 def display_msg_content(message):
-    with st.chat_message(message["role"]):
-        st.write(message["content"][0]["text"])
+    st.write(message)
+    #with st.chat_message(message["role"]):
+    #    st.write(message["content"][0]["text"])
 
 client = OpenAI()
 
@@ -69,10 +70,11 @@ if st.button("聞く"):
             {"role": "user", "content": input_message}
         ]
     )
-    st.write(completion)
+    #st.write(completion)
     #msg = completion.choices[0].message.content
     #st.write(msg)
     msg = completion.choices[0].message
+    st.write(msg)
     display_msg_content(msg)
     
     st.session_state.messages.append(msg)
