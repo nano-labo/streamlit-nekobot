@@ -36,9 +36,9 @@ def display_history(messages):
 
 def display_msg_content(message):
     #st.write(message)
-    st.write(message.content)
-    #with st.chat_message(message["role"]):
-    #    st.write(message["content"][0]["text"])
+    #st.write(message.content)
+    with st.chat_message(message["role"]):
+        st.write(message["content"][0]["text"])
 
 client = OpenAI()
 
@@ -80,5 +80,7 @@ if input_message:
     #st.write(msg)
     display_msg_content(msg)
     
-    st.session_state.messages.append(input_message)
-    st.session_state.messages.append(msg)
+    #st.session_state.messages.append(input_message)
+    #st.session_state.messages.append(msg)
+    st.session_state.messages.append({"role": "user", "content": input_message})
+    st.session_state.messages.append({"role": "assistant", "content": msg})
