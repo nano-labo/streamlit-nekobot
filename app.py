@@ -1,8 +1,25 @@
 """
+cd nekobot/streamlit-nekobot
+env\Scripts\activate.bat
+
 pip install --upgrade pip
 pip install streamlit==1.41.1 openai==1.47.0 httpx==0.27.2 python-dotenv
 
 streamlit run app.py
+
+
+** 初回登録
+git clone リポジトリのURL
+git add .
+git config -l
+git config --global user.name "ユーザー名"
+git config --global user.email "メールアドレス"
+
+
+** コミット方法
+git commit -m "first commit."
+git push -u origin main
+
 """
 
 from dotenv import load_dotenv
@@ -11,6 +28,15 @@ load_dotenv()
 
 import streamlit as st
 from openai import OpenAI
+
+def display_history(messages):
+    for message in messages:
+        display_msg_content(message)
+
+def display_msg_content(message):
+    with st.chat_message(message["role"]):
+        st.write(message["content"][0]["text"])
+
 client = OpenAI()
 
 st.title("猫ボット")
@@ -28,6 +54,11 @@ text_count = len(input_message)
 
 #print(f"Input: {input_message}")
 
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+display_history(st.session_state.messages)
+
 if st.button("聞く"):
     #以下は、質問に対してLLMからの回答を得るコードです。
     completion = client.chat.completions.create(
@@ -39,3 +70,5 @@ if st.button("聞く"):
     )
     msg = completion.choices[0].message.content
     st.write(msg)
+
+    st.session_state.messages.append(msg)
