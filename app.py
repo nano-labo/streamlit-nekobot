@@ -77,7 +77,7 @@ if input_message:
     #msg = completion.choices[0].message.content
     #st.write(msg)
     msg = completion.choices[0].message
-    st.write(msg)
+    st.write(msg.content)
     #display_msg_content(msg)
     
     #st.session_state.messages.append(input_message)
