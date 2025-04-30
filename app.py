@@ -54,7 +54,7 @@ fine_tuned_job = client.fine_tuning.jobs.retrieve(MY_JOB_ID)
 
 #input_message = st.text_input(label="さて、何を聞きたいのかな。")
 input_message = st.chat_input("さて、何を聞きたいのかな。")
-text_count = len(input_message)
+#text_count = len(input_message)
 
 #print(f"Input: {input_message}")
 
@@ -63,7 +63,8 @@ if "messages" not in st.session_state:
 
 display_history(st.session_state.messages)
 
-if st.button("聞く"):
+#if st.button("聞く"):
+if input_message:
     #以下は、質問に対してLLMからの回答を得るコードです。
     completion = client.chat.completions.create(
         model=fine_tuned_job.fine_tuned_model,
