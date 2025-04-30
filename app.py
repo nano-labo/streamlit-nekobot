@@ -35,7 +35,7 @@ def display_history(messages):
         display_msg_content(message)
 
 def display_msg_content(message):
-    #st.write(message)
+    st.write(message)
     #st.write(message.content)
     with st.chat_message(message["role"]):
         st.write(message["content"][0]["text"])
