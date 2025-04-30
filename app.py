@@ -107,13 +107,13 @@ st.write(f"現在のカウント: {st.session_state.count}")
 # ボタンを押すとカウントを増やしてリロード
 if st.button("カウントを +1 してリロード"):
     st.session_state.count += 1
-    #st.experimental_rerun()
+    st.rerun()
 
 if st.button("今日の天気は"):
     st.session_state["button_menu"] = "今日の天気は"
     st.write(st.session_state["button_menu"])
-    raise st.experimental_rerun()
+    st.rerun()
 if st.button("おすすめのレシピは"):
     st.session_state["button_menu"] = "おすすめのレシピは"
     st.write(st.session_state["button_menu"])
-    raise st.experimental_rerun()
+    st.rerun()
