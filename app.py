@@ -52,7 +52,8 @@ MY_JOB_ID = "ftjob-ewBc6B03Z0YgkanSTyNCog7y"
 fine_tuned_job = client.fine_tuning.jobs.retrieve(MY_JOB_ID)
 #fine_tuned_job
 
-input_message = st.text_input(label="さて、何を聞きたいのかな。")
+#input_message = st.text_input(label="さて、何を聞きたいのかな。")
+input_message = st.chat_input(label="さて、何を聞きたいのかな。")
 text_count = len(input_message)
 
 #print(f"Input: {input_message}")
@@ -78,4 +79,5 @@ if st.button("聞く"):
     #st.write(msg)
     display_msg_content(msg)
     
+    st.session_state.messages.append(input_message)
     st.session_state.messages.append(msg)
