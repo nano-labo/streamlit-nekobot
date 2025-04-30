@@ -99,15 +99,7 @@ if input_message:
     st.session_state.messages.append({"role": "user", "content": input_message})
     st.session_state.messages.append({"role": "assistant", "content": msg.content})
 
-if "count" not in st.session_state:
-    st.session_state.count = 0
 
-st.write(f"現在のカウント: {st.session_state.count}")
-
-# ボタンを押すとカウントを増やしてリロード
-if st.button("カウントを +1 してリロード"):
-    st.session_state.count += 1
-    st.rerun()
 
 if st.button("今日の天気は"):
     st.session_state["button_menu"] = "今日の天気は"
@@ -117,3 +109,6 @@ if st.button("おすすめのレシピは"):
     st.session_state["button_menu"] = "おすすめのレシピは"
     st.write(st.session_state["button_menu"])
     st.rerun()
+
+st.session_state.count += 1
+st.write(f"現在のカウント: {st.session_state.count}")
