@@ -80,7 +80,12 @@ if input_message:
     msg = completion.choices[0].message
     #st.write(msg.content)
     #display_msg_content(msg)
-    display_msg_content({"role": "assistant", "content": msg.content})
+    #display_msg_content({"role": "assistant", "content": msg.content})
+    
+    with st.chat_message("user"):
+        st.markdown(input_message)
+    with st.chat_message("assistant"):
+        st.markdown(msg.content)
     
     #st.session_state.messages.append(input_message)
     #st.session_state.messages.append(msg)
