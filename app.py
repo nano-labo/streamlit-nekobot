@@ -110,5 +110,8 @@ if st.button("おすすめのレシピは"):
     st.write(st.session_state["button_menu"])
     st.rerun()
 
+
+if "count" not in st.session_state:
+    st.session_state["count"] = 0
 st.session_state.count += 1
 st.write(f"現在のカウント: {st.session_state.count}")
