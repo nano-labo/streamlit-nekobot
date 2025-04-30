@@ -81,6 +81,6 @@ if input_message:
     display_msg_content(msg)
     
     #st.session_state.messages.append(input_message)
-    #st.session_state.messages.append(msg)
     st.session_state.messages.append({"role": "user", "content": input_message})
-    st.session_state.messages.append({"role": "assistant", "content": msg})
+    st.session_state.messages.append(msg)
+    #st.session_state.messages.append({"role": "assistant", "content": msg})
