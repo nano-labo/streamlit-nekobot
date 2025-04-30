@@ -101,5 +101,7 @@ if input_message:
 
 if st.button("今日の天気は"):
     st.session_state["button_menu"] = "今日の天気は"
+    st.experimental_rerun()
 if st.button("おすすめのレシピは"):
     st.session_state["button_menu"] = "おすすめのレシピは"
+    st.experimental_rerun()
