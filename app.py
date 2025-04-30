@@ -53,7 +53,7 @@ fine_tuned_job = client.fine_tuning.jobs.retrieve(MY_JOB_ID)
 #fine_tuned_job
 
 #input_message = st.text_input(label="さて、何を聞きたいのかな。")
-input_message = st.chat_input(label="さて、何を聞きたいのかな。")
+input_message = st.chat_input("さて、何を聞きたいのかな。")
 text_count = len(input_message)
 
 #print(f"Input: {input_message}")
