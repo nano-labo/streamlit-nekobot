@@ -77,10 +77,10 @@ if input_message:
     #msg = completion.choices[0].message.content
     #st.write(msg)
     msg = completion.choices[0].message
-    #st.write(msg)
-    display_msg_content(msg)
+    st.write(msg)
+    #display_msg_content(msg)
     
     #st.session_state.messages.append(input_message)
+    #st.session_state.messages.append(msg)
     st.session_state.messages.append({"role": "user", "content": input_message})
-    st.session_state.messages.append(msg)
-    #st.session_state.messages.append({"role": "assistant", "content": msg})
+    st.session_state.messages.append({"role": "assistant", "content": msg.content})
